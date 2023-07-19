@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "Node.js",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/firebase-cli:2": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/java:1": {}
+	},
+
+	"forwardPorts": [5001, 5057, 9099],
+	"portsAttributes": {
+		"5001": {
+			"label": "Functions",
+			"protocol": "http"
+		},
+		"9099": {
+			"label": "Auth",
+			"protocol": "http"
+		}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cd functions && npm i && cd ../react-app && npm i",
+	"postAttachCommand": "/bin/bash ./.devcontainer/setup.sh"
+}
