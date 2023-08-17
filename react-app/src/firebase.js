@@ -5,6 +5,7 @@ import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 
  const firebaseConfig = {
   apiKey: "AIzaSyDjPrge6BLbxiyPNTRubYROgi66-i7OfJs",
+  // apiKey: process.env.REACT_APP_apiKey;
   authDomain: "fp-foodrecipes.firebaseapp.com",
   projectId: "fp-foodrecipes",
   storageBucket: "fp-foodrecipes.appspot.com",
@@ -19,5 +20,5 @@ export const auth = getAuth(app);
 export const firestore = getFirestore(app);
 
 connectFunctionsEmulator(functions, "127.0.0.1", 5001);
-connectAuthEmulator(auth, process.env.REACT_APP_FIREBASE_AUTH_HOST);
-connectFirestoreEmulator(firestore, process.env.REACT_APP_FIREBASE_FIRESTORE_HOST);
+// connectAuthEmulator(auth, process.env.REACT_APP_FIREBASE_AUTH_HOST);
+// connectFirestoreEmulator(firestore, process.env.REACT_APP_FIREBASE_FIRESTORE_HOST);

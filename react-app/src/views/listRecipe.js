@@ -1,24 +1,87 @@
-import React from "react";
+import {React, useCallback, useState, useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { collection, deleteField, getDocs, updateDoc } from "firebase/firestore";
+import { firestore } from '../firebase';
 
 import { auth } from "../firebase";
+//import { RecipeContext } from "../context/recipeContext";
 
-export default function Test() {
+export default function ListRecipe() {
   const navigate = useNavigate();
+  //const {ingredients, setIngredients} = useContext(RecipeContext)
+  const [ingredientsR, setIngredientsR] = useState([]); // for read data
 
   const loginOut = () => {
     auth.signOut();
     navigate("/");
   };
 
+  const fetchPost = useCallback(async () => {
+
+    await getDocs(collection(firestore, "ingredients"))
+        .then((querySnapshot) => {
+            const newData = querySnapshot.docs
+                .map((doc) => ({ ...doc.data(), id: doc.id}));
+                setIngredientsR(newData);
+               console.log("data",newData);
+                //console.log(ingredientsR, "ingredients")
+        })
+
+}, [])
+
+
+useEffect(() => {
+    fetchPost();
+}, [fetchPost])
+
+console.log("test",ingredientsR)
+
+// trying to edit
+// await updateDoc(frankDocRef, {
+//   "age": 13,
+//   "favorites.color": "Red"
+// });
+
+// delete
+
+const deleteIngredientes = async () => {
+  
+  try {
+    const docRef = await updateDoc(collection(firestore, "ingredients"), {
+     //most be ingredient 'cose ingredients add all data
+      //id: ingredient.id,
+      //ingredients: ingredient,
+      idf: deleteField(),
+      name: deleteField(),
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+
+}
+// await updateDoc(cityRef, {
+//   capital: deleteField()
+// });
+
   return (
     <>
       <button onClick={loginOut}>Sign out</button>
-       <p>me ves</p>
-       <NavLink to='/demo'>
+       <p style={{color:"white"}}>me ves</p>
+       <NavLink to='/newRecipe'>
         Go
        </NavLink>
+<div>
+       {ingredientsR.map(
+          (ingredientsR,i)=>
+              <p key={i} style={{color:"white"}}>{ingredientsR.name}</p>
+          )
+       }
+
+</div>
+       {/* <p>{ingredientsR.ingredients.id}</p> */}
+      
 
       {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">

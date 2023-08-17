@@ -43,6 +43,12 @@ export default function Login() {
         console.log("token: ", token);
         console.log(" user: ", user);
 
+        console.log("before redirect");
+
+        navigate("/newRecipe", { replace: true });
+
+        console.log("after redirect");
+        
         const res = await fetch(
           `${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/geeks-firebase-72e6d/us-central1/signUpOrSigninUser`,
           {
@@ -58,11 +64,6 @@ export default function Login() {
         //navigate("/home");
         console.log(" data: ", dbUser);
 
-        console.log("before redirect");
-
-        navigate("/test", { replace: true });
-
-        console.log("after redirect");
  
       })
       .catch((error) => {
