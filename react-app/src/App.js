@@ -23,8 +23,7 @@ export default function App() {
           <Route exact path="/newRecipe" element={<NewRecipe/>} />
           <Route exact path="/listRecipe" element={<ListRecipe/>} />
           
-          {/* <Route exact path="/test" element={<Todo />} />
-          <Route exact path="/demo" element={<TodoContainer/>} /> */}
+         
 
 
           <Route exact path="/newRecipe" element={<NewRecipe/>} />

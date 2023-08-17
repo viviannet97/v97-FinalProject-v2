@@ -1,15 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { NavLink } from "react-router-dom";
 
 import IngredientsList from '../component/ingredientsList';
 import RecipeList from '../component/recipeList';
 import { RecipeContext } from '../context/recipeContext';
 
 import "../styles/newrecipe.css";
-
-//const apiRecipe = "https://api.spoonacular.com/recipes/${userInput}/information";
-
-//const apiIngredients = "https://api.spoonacular.com/food/ingredients/search?query=${userInput}&number=100";
 
 export default function NewRecipe() {
 
@@ -33,10 +28,10 @@ export default function NewRecipe() {
     function searchIngredient() {
         fetch(`https://api.spoonacular.com/food/ingredients/search?query=${userInput}&number=100`,
             {
-                method: 'GET', 
+                method: 'GET',
                 headers: {
                     "x-api-key":
-                        "f951a00c86054c8b8914658f77e00e4b"
+                        "d5642d1fd212408ebda361f387f7a4e9"
                 },
             }
         )
@@ -57,9 +52,6 @@ export default function NewRecipe() {
                 <div className='row flex-nowrap'>
                     {/* Left Column */}
                     <section className='col-4 left'>
-                        <NavLink to='/listRecipe'>
-                            Go
-                        </NavLink>
                         <h1>New Recipe</h1>
                         {/* Ingredients Search Bar + Search Button */}
                         <div className='usrInput'>
@@ -71,7 +63,7 @@ export default function NewRecipe() {
                                 onChange={userIpuntHandler}
                                 onKeyUp={searchIngredientsHandler}
                             />
-                            <div onClick={searchIngredient}><i className="fa-solid fa-magnifying-glass"></i></div>
+                            <div onClick={searchIngredient}><i id='searchICO' className="fa-solid fa-magnifying-glass"></i></div>
                         </div>
                         {/* Ingredients Found */}
                         <div className='ingredList'>
@@ -84,13 +76,15 @@ export default function NewRecipe() {
                     </section>
                     {/* Right Column */}
                     <section className='col-8 align-self-center right'>
-                       <p style={{color:"white"}}> ingrediente</p>
-                        {recipeIngredients && <RecipeList />}
-
-                        <p style={{color:"white"}}> ingrediente</p>
+                        <div className='recipeNewName'>
+                            <input
+                                id="recipeName"
+                                type='text'
+                                placeholder="Recipe name"
+                            />
+                        </div>
                         {recipeIngredients && <RecipeList />}
                     </section>
-
                 </div>
             </div>
         </>

@@ -1,20 +1,205 @@
 section.recipeList {
-    /* padding-left: 20px;
-    padding-right: 20px; */
-    /* margin-top: calc(130px + 20px);
-    margin-right: calc(50px + 20px); */
-    width: auto;
-    height: calc(100vh - 200px);
-    overflow-y: auto;
-    scrollbar-color: #b8b8b8 #e0e0e0;
-    scrollbar-width: thin;
-    overflow: hidden;
+  width: auto;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  scrollbar-color: #b8b8b8 #e0e0e0;
+  scrollbar-width: thin;
+  overflow: hidden;
 }
 
-section.recipeList::-webkit-scrollbar{ width: 5px;}
+section.recipeList::-webkit-scrollbar {
+  width: 5px;
+}
 
 section.recipeList::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-  }
-section.recipeList:hover{ overflow-y: auto;}
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+section.recipeList:hover {
+  overflow-y: auto;
+}
+
+section.recipeCost {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  width: auto;
+  border: 0;
+  border-style: solid;
+  border-left: 1px;
+  border-color: lightgray;
+}
+
+section#cost, section#salePrice, section#taxValue {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 1px 0 12px grey;
+}
+
+section#salePrice{ margin-top: 30px;}
+section#taxValue{ margin-top: 30px;}
+
+span {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  padding-left: 5px;
+  margin: 0;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 20px;
+  padding-left: 2px;
+  padding-right: 5px;
+}
+
+/* labels */
+.cti,
+.mev,
+.ctp,
+.cpp,
+.taxv,
+.pmp,
+.psv,
+.psvt,
+.prv,
+.vdt,
+.mdg,
+.vdd {
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px;
+  border-color: lightgray;
+  border-style: solid;
+}
+
+/* special labels */
+.pmp, .psv, .psvt{
+  color: rgb(70, 70, 70);
+  border-color: white;
+}
+
+/* totals */
+.cpp, .vdd {
+  background-image: linear-gradient(rgb(146, 138, 255), rgb(102, 0, 255));
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+/* values */
+#ctiValue,
+#mevValue,
+#ctpValue,
+#ppvValue,
+#prvValue,
+#vdtValue,
+#pmdgValue,
+#mdgValue {
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgb(241, 241, 241);
+  margin-left: 5px;
+}
+
+#cppValue, #psvValue, #psvtValue{
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+#mevInput, #tvInput, #pmpInput {
+  display: flex;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+  font-size: 16px;
+  color: lightslategray;
+  padding-left: 5px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+#vvdInput{
+  display: flex;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  color: lightslategray;
+  padding-left: 5px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+section#suggestedPrice {
+  margin-top: 30px;
+  background-color: rgb(186, 181, 255);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 1px 0 12px grey;
+}
+
+#gqm{
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px;
+  font-size: 15px;
+color: grey;
+}
+
+#qm{
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px;
+  font-size: 15px;
+color: rgb(102, 0, 255);
+}
+
+.pmp {
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.percPMP{display: flex;}
+
+#mdgs, #vdv{
+  display: flex;
+
+}

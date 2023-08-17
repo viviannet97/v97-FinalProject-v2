@@ -6,7 +6,7 @@ export default function RecipeContextProvider(props){
 
     const [ ingredients, setIngredients ] = useState([]);
     const [ recipeIngredients, setRecipeIngredients ] = useState([]);
-    const [ dataLoaded, setDataLoaded ] = useState(false);
+    
 
     return (
         <RecipeContext.Provider value={{ 
@@ -14,8 +14,7 @@ export default function RecipeContextProvider(props){
             setIngredients,
             recipeIngredients,
             setRecipeIngredients,
-            dataLoaded,
-            setDataLoaded }}>
+             }}>
             {props.children}
         </RecipeContext.Provider>
     )
