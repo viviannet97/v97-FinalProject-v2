@@ -9,7 +9,7 @@ import NoRecipe from "./norecipe";
 import "../styles/recipeList.css";
 // process.env.API_KEY
 
-export default function RecipeList() {
+export default function RecipeList(ingredientsData) {
     
 
     const { recipeIngredients } = useContext(RecipeContext);
@@ -25,27 +25,28 @@ export default function RecipeList() {
         }
     }
 
-        const addData = async () => {
+     //   const addData = async () => {
 
-            const bd= collection(firestore, "ingredients");
+    //         const bd= collection(firestore, "ingredients");
+    //        // var docData = recipeIngredients;
 
-        try {
-        const docRef = await addDoc(bd, {
-         //most be ingredient 'cose ingredients add all data
+    //     try {
+    //     const docRef = await addDoc(bd, {
+    //      //most be ingredient 'cose ingredients add all data
         
-          idf: recipeIngredients.id,
-          name: recipeIngredients.name,
-         image: recipeIngredients.image,
-        //amount: ingredient.amount,
-        //   units: recipeIngredients.units,
-        //   cost: ingredient.estimatedCost,
-         //costUnit: recipeIngredients.unit,
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-    }
+    //       idf: ingredientsData.id,
+    //       name: ingredientsData.name,
+    //      image: ingredientsData.image,
+    //     //amount: ingredient.amount,
+    //     //   units: recipeIngredients.units,
+    //     //   cost: ingredient.estimatedCost,
+    //      //costUnit: recipeIngredients.unit,
+    //     });
+    //     console.log("Document written with ID: ", docRef.id);
+    //   } catch (e) {
+    //     console.error("Error adding document: ", e);
+    //   }
+    // }
 
     return (
         <div className="container-fluid">
@@ -221,7 +222,7 @@ export default function RecipeList() {
                     </section>
                     <div className="options">
                         <button type="button" className="btn m-2 btn-secondary">Calcular</button>
-                        <button type="button" className="btn m-2 btn-success" onClick={addData}>Guardar</button>
+                        <button type="button" className="btn m-2 btn-success" >Guardar</button>
 
                     </div>
 

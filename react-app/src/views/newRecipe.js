@@ -106,3 +106,23 @@ export default function NewRecipe() {
         </>
     )
 }
+
+//get data from firestore
+
+// await getDocs(collection(firestore, "ingredients"))
+// .then((querySnapshot) => {
+//     const newData = querySnapshot.docs
+//         .map((doc) => ({ ...doc.data(), id: doc.id}));
+//         setIngredientsR(newData);
+//        console.log("data",newData);
+//         //console.log(ingredientsR, "ingredients")
+// })
+
+// }, [])
+
+
+// useEffect(() => {
+// fetchPost();
+// }, [fetchPost])
+
+// console.log("test",ingredientsR)

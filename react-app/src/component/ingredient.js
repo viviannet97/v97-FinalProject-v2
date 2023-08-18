@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { RecipeContext } from "../context/recipeContext";
 
-// import { firestore } from "../firebase";
-// import { collection, addDoc} from "firebase/firestore";
+ import { firestore } from "../firebase";
+ import { collection, addDoc} from "firebase/firestore";
 
 import "../styles/ingredient.css";
 
@@ -32,7 +32,7 @@ export default function Ingredient({ ingredient }) {
         return data
     }
 
-        // const bd= collection(firestore, "ingredients");
+    const bd= collection(firestore, "ingredients");
     
     const addIngredientToRecipe = async () => {
         try {
@@ -53,24 +53,24 @@ export default function Ingredient({ ingredient }) {
         
         }
         catch (e) { }
-        console.log("recipeIng", recipeIngredients)
-         // addDoc method
-    //   try {
-    //     const docRef = await addDoc(bd, {
-    //      //most be ingredient 'cose ingredients add all data
+       // console.log("recipeIng", recipeIngredients)
+        // addDoc method
+      try {
+        const docRef = await addDoc(bd, {
+         //most be ingredient 'cose ingredients add all data
         
-    //       idf: ingredient.id,
-    //       name: ingredient.name,
-    //      image: ingredient.image,
-    //     //amount: ingredient.amount,
-    //     //   units: recipeIngredients.units,
-    //     //   cost: ingredient.estimatedCost,
-    //      //costUnit: recipeIngredients.unit,
-    //     });
-    //     console.log("Document written with ID: ", docRef.id);
-    //   } catch (e) {
-    //     console.error("Error adding document: ", e);
-    //   }
+          idf: ingredient.id,
+          name: ingredient.name,
+         image: ingredient.image,
+        //amount: ingredient.amount,
+        //   units: recipeIngredients.units,
+        //   cost: ingredient.estimatedCost,
+         //costUnit: recipeIngredients.unit,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     };
 
     //const itemRef = bd.doc(ingredients.id)
