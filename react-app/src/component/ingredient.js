@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { RecipeContext } from "../context/recipeContext";
 
+// import { firestore } from "../firebase";
+// import { collection, addDoc} from "firebase/firestore";
+
 import "../styles/ingredient.css";
 
 export default function Ingredient({ ingredient }) {
@@ -24,11 +27,13 @@ export default function Ingredient({ ingredient }) {
             }
         );
         const data = await response.json();
+        console.log("data", data)
 
         return data
     }
 
-
+        // const bd= collection(firestore, "ingredients");
+    
     const addIngredientToRecipe = async () => {
         try {
 
@@ -45,11 +50,33 @@ export default function Ingredient({ ingredient }) {
             }
             setRecipeIngredients([...recipeIngredients, ri])
             setIngredients(ingredients.filter((ingred) => ingredient.id !== ingred.id))
+        
         }
         catch (e) { }
-    }
+        console.log("recipeIng", recipeIngredients)
+         // addDoc method
+    //   try {
+    //     const docRef = await addDoc(bd, {
+    //      //most be ingredient 'cose ingredients add all data
+        
+    //       idf: ingredient.id,
+    //       name: ingredient.name,
+    //      image: ingredient.image,
+    //     //amount: ingredient.amount,
+    //     //   units: recipeIngredients.units,
+    //     //   cost: ingredient.estimatedCost,
+    //      //costUnit: recipeIngredients.unit,
+    //     });
+    //     console.log("Document written with ID: ", docRef.id);
+    //   } catch (e) {
+    //     console.error("Error adding document: ", e);
+    //   }
+    };
 
+    //const itemRef = bd.doc(ingredients.id)
+    //console.log("id",itemRef)
 
+    
     return (
         <article className="ingredientFound" onClick={addIngredientToRecipe}>
             <section className="img">

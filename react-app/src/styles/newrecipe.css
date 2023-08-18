@@ -1,4 +1,6 @@
-
+body{
+    background-image: none;
+}
 .footer {
     /* position: fixed; */
     /* bottom:0; */

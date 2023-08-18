@@ -1,16 +1,35 @@
 import React, { useState, useContext } from "react";
 import { RecipeContext } from "../context/recipeContext";
 
+//import { firestore } from "../firebase";
+//import { collection, updateDoc} from "firebase/firestore";
+
 import "../styles/recipe.css";
 
 export default function Recipe({ ingredient }) {
 
     const [showDelete, setShowDelete] = useState(false);
     const { setRecipeIngredients } = useContext(RecipeContext);
+    
+   //const bd= collection(firestore, "ingredients");
 
-    const removeTask = (key) => {
+    const removeTask = async (key) => {
         setRecipeIngredients(i => i.filter((ingred) => key !== ingred.id))
-    }
+       
+        // try {
+        //     const docRef = await updateDoc(bd, {
+        //      //most be ingredient 'cose ingredients add all data
+            
+        //     id: true
+        //     });
+        //     console.log("Document written with ID: ", docRef.id);
+        //   } catch (e) {
+        //     console.error("Error adding document: ", e);
+        //   }
+        }  
+    
+    
+    
 
     return (
         <article>

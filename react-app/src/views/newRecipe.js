@@ -1,4 +1,7 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+import {auth} from "../firebase";
 
 import IngredientsList from '../component/ingredientsList';
 import RecipeList from '../component/recipeList';
@@ -6,10 +9,12 @@ import { RecipeContext } from '../context/recipeContext';
 
 import "../styles/newrecipe.css";
 
+
 export default function NewRecipe() {
 
     const { ingredients, setIngredients, recipeIngredients } = useContext(RecipeContext);
     const [userInput, setUserInput] = useState("");
+    const navigate = useNavigate();
 
     // Get the user input
     const userIpuntHandler = (e) => {
@@ -22,6 +27,8 @@ export default function NewRecipe() {
             console.log(userInput);
             searchIngredient(userInput);
         }
+
+        
     };
 
     // Fetch for ingredients search
@@ -43,15 +50,24 @@ export default function NewRecipe() {
             .catch((error) => {
                 console.log(error);
             });
+
+           
     }
 
+    console.log("newRecipe", recipeIngredients)
 
+    const loginOut = () => {
+        auth.signOut();
+        navigate("/");
+        
+      };
     return (
         <>
-            <div className='container-fluid'>
+        <div className='container-fluid'>
                 <div className='row flex-nowrap'>
                     {/* Left Column */}
                     <section className='col-4 left'>
+        <button onClick={loginOut}>Sign Out</button>
                         <h1>New Recipe</h1>
                         {/* Ingredients Search Bar + Search Button */}
                         <div className='usrInput'>

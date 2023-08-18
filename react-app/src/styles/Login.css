@@ -1,59 +1,120 @@
 
-/* .background-radial-gradient {
-  background-color: hsl(218, 41%, 15%);
-  background-image: radial-gradient(650px circle at 0% 0%,
-      hsl(218, 41%, 35%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
-      transparent 100%),
-      radial-gradient(1250px circle at 100% 100%,
-      hsl(218, 41%, 45%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
-      transparent 100%); 
-} */
-
-
-
-body{
-  background-color:hsl(218, 41%, 15%) ;
- 
-}
-
-.background-radial-gradient{
-  padding-top: 200px;
-}
-.card{
-  background-color:#44006b ;
-  opacity: 50%;
- 
+.body{
+    background-image: url(https://th.bing.com/th/id/R.45e45d1cc399f3ef5c3f8a7bfb7f3a74?rik=Fo0GpBdqiz0HzQ&pid=ImgRaw&r=0);
+    height: 100vh;
+    /* width: auto;  */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0
 }
 
 
-
-
-#radius-shape-1 {
-  height: 220px;
-  width: 220px;
-  top: -60px;
-  left: -130px;
-  background: radial-gradient(#44006b, #ff231f);
-  overflow: hidden;
+@media only screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
 }
 
-#radius-shape-2 {
-  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-  bottom: -60px;
-  right: -110px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(#44006b, #ff231f);
-  overflow: hidden;
+.login-box {
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin: 50px auto; 
+    min-height: 700px;
+    -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);  
 }
 
-/* .bg-glass {
-  background-color: hsla(0, 0%, 100%, 0.9) !important;
-  backdrop-filter: saturate(200%) blur(25px);
-} */
+.sign{
+    margin-top: 50px;
+}
+
+.logo {
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: center;
+    color: #888888;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.logo .logo-font {
+    color: #1f1d19;
+}
+
+@media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 34px;
+       margin-left: auto;
+        color: black;
+    }
+}
+
+.header-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgb(31, 30, 29);
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-form .form-control {
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+.login-form .form-group {
+    position: relative;
+}
+
+.login-form .form-group .forgot-password {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+}
+
+.login-form .btn {
+    border-radius: 0;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.login-form .btn.btn-primary {
+    background: #3b7def;
+    border-color:  #3b7def;
+}
+
+.slider-feature-card {
+    background: #dee2e0;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    -webkit-box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+}
+
+.slider-feature-card img {
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.slider-feature-card h3,
+.slider-feature-card p {
+    margin-bottom: 30px;
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators li {
+    cursor: pointer;
+}

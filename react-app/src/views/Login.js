@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import "../styles/Login.css";
+
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -11,8 +12,6 @@ const provider = new GoogleAuthProvider();
 
 export default function Login() {
   const navigate = useNavigate();
-
-  
 
   useEffect(() => {
     (async () => {
@@ -48,7 +47,7 @@ export default function Login() {
         navigate("/newRecipe", { replace: true });
 
         console.log("after redirect");
-        
+
         const res = await fetch(
           `${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/geeks-firebase-72e6d/us-central1/signUpOrSigninUser`,
           {
@@ -63,132 +62,110 @@ export default function Login() {
         const dbUser = await res.json();
         //navigate("/home");
         console.log(" data: ", dbUser);
-
- 
       })
       .catch((error) => {
         console.error(error);
       });
-  
   };
 
   return (
-    // <div classNameName="App">
-    //   <button onClick={ onLogin }>Sign in</button>
-
-    // </div>
-    //  <section classNameName="vh-100">
-    <>
-      {/* <section classNameName="vh-100">
-        <div classNameName="container-fluid h-custom">
-          <div classNameName="row d-flex justify-content-center align-items-center h-100">
-            <div classNameName="col-md-9 col-lg-6 col-xl-5">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                classNameName="img-fluid"
-                alt=""
-              />
+    <div className="body d-flex justify-content-center align-items-center">
+      <div className="container">
+        <div className="login-box">
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="logo" style={{color:"black"}}>Recipes</div>
             </div>
-            <div classNameName="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form> */}
-
-      {/* loguearse con google, twitter, linkedin  https://mdbootstrap.com/docs/standard/extended/login/#!*/}
-
-      {/* <div classNameName="text-center text-lg-start mt-4 pt-2">
+          </div>
+          <div className="row">
+            <div className="col-sm-6 sign">
+              <br />
+              <h3 className="header-title">LOGIN</h3>
+              <form className="login-form">
+                {/* <div className="form-group">
+                              <input type="text" className="form-control" placeholder="Email or UserName"/>
+                          </div>
+                          <div className="form-group">
+                              <input type="Password" className="form-control" placeholder="Password"/>
+                              <a href="#!" className="forgot-password">Forgot Password?</a>
+                          </div> */}
+                <div className="form-group">
                   <button
-                    type="button"
-                    classNameName="btn btn-primary btn-lg"
-                    style={{
-                      paddingLeft: "2.5rem",
-                      paddingRight: "2.5rem",
-                    }}
+                    className="btn btn-primary btn-block"
                     onClick={onLogin}
                   >
-                    Sign in
+                    LOGIN WITH <i className="fa-brands fa-google"></i>
                   </button>
                 </div>
+                {/* <div className="form-group">
+                              <div className="text-center">New Member? <a href="#!">Sign up Now</a></div>
+                          </div> */}
               </form>
             </div>
-          </div>
-        </div>
-        <div classNameName="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-          <div classNameName="text-white mb-3 mb-md-0">
-            Copyright © 2020. All rights reserved.
-          </div>
-        </div>
-      </section> */}
-
-
-      <section className="background-radial-gradient overflow-hidden"> 
-       
-        <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-        
-          <div className="row gx-lg-5 align-items-center mb-5">
-            <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: "10" }}>
-              <h1
-                className="my-5 display-5 fw-bold ls-tight"
-                style={{ color: " hsl(218, 81%, 95%)" }}
-              >
-                The best offer <br />
-                <span style={{ color: "hsl(218, 81%, 75%)" }}>
-                  for your business
-                </span>
-              </h1>
-              <p
-                className="mb-4 opacity-70"
-                style={{ color: "hsl(218, 81%, 85%)" }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                ab ipsum nisi dolorem modi. Quos?
-              </p>
-            </div>
-
-            <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
-              <div
-                id="radius-shape-1"
-                className="position-absolute rounded-circle shadow-5-strong"
-              ></div>
-              <div
-                id="radius-shape-2"
-                className="position-absolute shadow-5-strong"
-              ></div>
-
-              <div className="card bg-glass">
-                <div className="card-body ">
-                 
-                  <form>
-                    <div className="  mx-auto  ">
-                      <button
-                      // className="btn btn-primary "
-                      className="fw-bold"
-                        type="button"
-                        onClick={onLogin}
-                        style={{
-                          border:'none', 
-                          background:"transparent",
-                          fontSize:"30px",
-                          color:"hsl(218, 81%, 85%)"
-
-                          
-                        
-                    
-                        }}
-                        
-                       
-                      >
-                        Sign in{" "}
-                      </button>
+            <div className="col-sm-6 hide-on-mobile">
+              <div id="demo" className="carousel slide" data-ride="carousel">
+                {/* <!-- Indicators --> */}
+                <ul className="carousel-indicators">
+                  <li
+                    data-target="#demo"
+                    data-slide-to="0"
+                    className="active"
+                  ></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+                </ul>
+                {/* <!-- The slideshow --> */}
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="slider-feature-card">
+                      <img src="https://i.imgur.com/YMn8Xo1.png" alt="" />
+                      <h3 className="slider-title">Title Here</h3>
+                      <p className="slider-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Iure, odio!
+                      </p>
                     </div>
-                  </form>
+                  </div>
+                  <div className="carousel-item">
+                    <div className="slider-feature-card">
+                      <img src="https://i.imgur.com/Yi5KXKM.png" alt="" />
+                      <h3 className="slider-title">Title Here</h3>
+                      <p className="slider-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Ratione, debitis?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="carouselExampleIndicators"
+                  class="carousel slide"
+                  data-bs-ride="true"
+                >
+                  {/* <!-- Left and right controls --> */}
+                  <a
+                    className="carousel-control-prev"
+                    href="#demo"
+                    data-slide="prev"
+                  >
+                    <span className="carousel-control-prev-icon"></span>
+                  </a>
+                  <a
+                    className="carousel-control-next"
+                    href="#demo"
+                    data-slide="next"
+                  >
+                    <span className="carousel-control-next-icon"></span>
+                  </a>
                 </div>
               </div>
             </div>
+
+           
           </div>
         </div>
-       </section>
-    </>
+      </div>
+    </div>
   );
 }
 
