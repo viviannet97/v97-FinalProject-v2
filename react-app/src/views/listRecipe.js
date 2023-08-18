@@ -1,4 +1,4 @@
-import {React, useCallback, useState, useEffect} from "react";
+import { React, useCallback, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //import { collection, deleteField, getDocs, updateDoc } from "firebase/firestore";
@@ -18,86 +18,77 @@ export default function ListRecipe() {
     navigate("/");
   };
 
-//   const fetchPost = useCallback(async () => {
+  //   const fetchPost = useCallback(async () => {
 
-//     await getDocs(collection(firestore, "ingredients"))
-//         .then((querySnapshot) => {
-//             const newData = querySnapshot.docs
-//                 .map((doc) => ({ ...doc.data(), id: doc.id}));
-//                 setIngredientsR(newData);
-//                console.log("data",newData);
-//                 //console.log(ingredientsR, "ingredients")
-//         })
+  //     await getDocs(collection(firestore, "ingredients"))
+  //         .then((querySnapshot) => {
+  //             const newData = querySnapshot.docs
+  //                 .map((doc) => ({ ...doc.data(), id: doc.id}));
+  //                 setIngredientsR(newData);
+  //                console.log("data",newData);
+  //                 //console.log(ingredientsR, "ingredients")
+  //         })
 
-// }, [])
+  // }, [])
 
+  // useEffect(() => {
+  //     fetchPost();
+  // }, [fetchPost])
 
-// useEffect(() => {
-//     fetchPost();
-// }, [fetchPost])
+  // console.log("test",ingredientsR)
 
-// console.log("test",ingredientsR)
+  // trying to edit
+  // await updateDoc(frankDocRef, {
+  //   "age": 13,
+  //   "favorites.color": "Red"
+  // });
 
-// trying to edit
-// await updateDoc(frankDocRef, {
-//   "age": 13,
-//   "favorites.color": "Red"
-// });
+  // delete
 
-// delete
+  // const deleteIngredientes = async () => {
 
-// const deleteIngredientes = async () => {
-  
-//   try {
-//     const docRef = await updateDoc(collection(firestore, "ingredients"), {
-//      //most be ingredient 'cose ingredients add all data
-//       //id: ingredient.id,
-//       //ingredients: ingredient,
-//       idf: deleteField(),
-//       name: deleteField(),
-//     });
-//     console.log("Document written with ID: ", docRef.id);
-//   } catch (e) {
-//     console.error("Error adding document: ", e);
-//   }
+  //   try {
+  //     const docRef = await updateDoc(collection(firestore, "ingredients"), {
+  //      //most be ingredient 'cose ingredients add all data
+  //       //id: ingredient.id,
+  //       //ingredients: ingredient,
+  //       idf: deleteField(),
+  //       name: deleteField(),
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
 
-// }
-// await updateDoc(cityRef, {
-//   capital: deleteField()
-// });
+  // }
+  // await updateDoc(cityRef, {
+  //   capital: deleteField()
+  // });
 
   return (
     <>
-    <nav class="navbar navbar-light bg-light">
-       <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">Recipe List</span>
 
-        <span class="navbar-brand mb-0 h1">Recipe List</span>
-
-         <div className="header d-flex align-items-left d-grid gap-2">
-          <button style={{border:"none"}}onClick={loginOut}>
-          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
-          </button>
-          
-           
-          <NavLink to='/newRecipe'>
-            go
+          <div className="header d-flex align-items-left d-grid gap-2">
+            <NavLink to="/newRecipe">
+              <i className="fa-solid fa-circle-arrow-left fa-lg"></i>
             </NavLink>
-            </div>
+            <button style={{ border: "none" }} onClick={loginOut}>
+              <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
 
-            
-       </div>
-    </nav>
-
-    <div className="container">
-      <div className="row">
-        
-        <RecipeCard/>
-
+      <div className="container">
+        <div className="row">
+          <RecipeCard />
         </div>
       </div>
-    
-    
-{/* <div>
+
+      {/* <div>
        {ingredientsR.map(
           (ingredientsR,i)=>
               <p key={i} style={{color:"white"}}>{ingredientsR.name}</p>
@@ -105,8 +96,7 @@ export default function ListRecipe() {
        }
 
 </div> */}
-       {/* <p>{ingredientsR.ingredients.id}</p> */}
-      
+      {/* <p>{ingredientsR.ingredients.id}</p> */}
 
       {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">

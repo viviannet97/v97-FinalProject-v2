@@ -74,7 +74,7 @@ export default function Login() {
         <div className="login-box">
           <div className="row">
             <div className="col-sm-6">
-              <div className="logo" style={{color:"black"}}>Recipes</div>
+              <div className="logo" style={{color:"black"}}>Do your own recipes</div>
             </div>
           </div>
           <div className="row">
@@ -117,11 +117,10 @@ export default function Login() {
                 <div className="carousel-inner">
                   <div className="carousel-item active">
                     <div className="slider-feature-card">
-                      <img src="https://i.imgur.com/YMn8Xo1.png" alt="" />
-                      <h3 className="slider-title">Title Here</h3>
+                      <img src="https://www.freeiconspng.com/thumbs/recipes-icon-png/notebook-recipe-icon-18.png" alt="" />
+                      <h3 className="slider-title">Cost Recipes</h3>
                       <p className="slider-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Iure, odio!
+                        We offer opportunity to know how much can cost a food plate in accordance with price of ingredients 
                       </p>
                     </div>
                   </div>

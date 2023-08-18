@@ -100,11 +100,11 @@
     box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
 }
 
-.slider-feature-card img {
+/* .slider-feature-card img {
     height: 80px;
     margin-top: 30px;
     margin-bottom: 30px;
-}
+} */
 
 .slider-feature-card h3,
 .slider-feature-card p {
