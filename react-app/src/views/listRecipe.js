@@ -1,41 +1,42 @@
 import {React, useCallback, useState, useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { collection, deleteField, getDocs, updateDoc } from "firebase/firestore";
-import { firestore } from '../firebase';
+//import { collection, deleteField, getDocs, updateDoc } from "firebase/firestore";
+//import { firestore } from '../firebase';
 
 import { auth } from "../firebase";
+import { RecipeCard } from "../component/recipeCard";
 //import { RecipeContext } from "../context/recipeContext";
 
 export default function ListRecipe() {
   const navigate = useNavigate();
   //const {ingredients, setIngredients} = useContext(RecipeContext)
-  const [ingredientsR, setIngredientsR] = useState([]); // for read data
+  // const [ingredientsR, setIngredientsR] = useState([]); // for read data
 
   const loginOut = () => {
     auth.signOut();
     navigate("/");
   };
 
-  const fetchPost = useCallback(async () => {
+//   const fetchPost = useCallback(async () => {
 
-    await getDocs(collection(firestore, "ingredients"))
-        .then((querySnapshot) => {
-            const newData = querySnapshot.docs
-                .map((doc) => ({ ...doc.data(), id: doc.id}));
-                setIngredientsR(newData);
-               console.log("data",newData);
-                //console.log(ingredientsR, "ingredients")
-        })
+//     await getDocs(collection(firestore, "ingredients"))
+//         .then((querySnapshot) => {
+//             const newData = querySnapshot.docs
+//                 .map((doc) => ({ ...doc.data(), id: doc.id}));
+//                 setIngredientsR(newData);
+//                console.log("data",newData);
+//                 //console.log(ingredientsR, "ingredients")
+//         })
 
-}, [])
+// }, [])
 
 
-useEffect(() => {
-    fetchPost();
-}, [fetchPost])
+// useEffect(() => {
+//     fetchPost();
+// }, [fetchPost])
 
-console.log("test",ingredientsR)
+// console.log("test",ingredientsR)
 
 // trying to edit
 // await updateDoc(frankDocRef, {
@@ -45,41 +46,65 @@ console.log("test",ingredientsR)
 
 // delete
 
-const deleteIngredientes = async () => {
+// const deleteIngredientes = async () => {
   
-  try {
-    const docRef = await updateDoc(collection(firestore, "ingredients"), {
-     //most be ingredient 'cose ingredients add all data
-      //id: ingredient.id,
-      //ingredients: ingredient,
-      idf: deleteField(),
-      name: deleteField(),
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
+//   try {
+//     const docRef = await updateDoc(collection(firestore, "ingredients"), {
+//      //most be ingredient 'cose ingredients add all data
+//       //id: ingredient.id,
+//       //ingredients: ingredient,
+//       idf: deleteField(),
+//       name: deleteField(),
+//     });
+//     console.log("Document written with ID: ", docRef.id);
+//   } catch (e) {
+//     console.error("Error adding document: ", e);
+//   }
 
-}
+// }
 // await updateDoc(cityRef, {
 //   capital: deleteField()
 // });
 
   return (
     <>
-      <button onClick={loginOut}>Sign out</button>
-       <p style={{color:"white"}}>me ves</p>
-       <NavLink to='/newRecipe'>
-        Go
-       </NavLink>
-<div>
+    <nav class="navbar navbar-light bg-light">
+       <div class="container-fluid">
+
+        <span class="navbar-brand mb-0 h1">Recipe List</span>
+
+         <div className="header d-flex align-items-left d-grid gap-2">
+          <button style={{border:"none"}}onClick={loginOut}>
+          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+          </button>
+          
+           
+          <NavLink to='/newRecipe'>
+            go
+            </NavLink>
+            </div>
+
+            
+       </div>
+    </nav>
+
+    <div className="container">
+      <div className="row">
+        
+        <RecipeCard/>
+
+        </div>
+      </div>
+    
+    
+{/* <div>
        {ingredientsR.map(
           (ingredientsR,i)=>
               <p key={i} style={{color:"white"}}>{ingredientsR.name}</p>
           )
        }
 
-</div>
+</div> */}
        {/* <p>{ingredientsR.ingredients.id}</p> */}
       
 

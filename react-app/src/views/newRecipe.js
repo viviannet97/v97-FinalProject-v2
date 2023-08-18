@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 import {auth} from "../firebase";
 
@@ -67,7 +68,8 @@ export default function NewRecipe() {
                 <div className='row flex-nowrap'>
                     {/* Left Column */}
                     <section className='col-4 left'>
-        <button onClick={loginOut}>Sign Out</button>
+                          <button onClick={loginOut}>Sign Out</button>
+                          <NavLink to="/listRecipe">Go</NavLink>
                         <h1>New Recipe</h1>
                         {/* Ingredients Search Bar + Search Button */}
                         <div className='usrInput'>
@@ -107,22 +109,3 @@ export default function NewRecipe() {
     )
 }
 
-//get data from firestore
-
-// await getDocs(collection(firestore, "ingredients"))
-// .then((querySnapshot) => {
-//     const newData = querySnapshot.docs
-//         .map((doc) => ({ ...doc.data(), id: doc.id}));
-//         setIngredientsR(newData);
-//        console.log("data",newData);
-//         //console.log(ingredientsR, "ingredients")
-// })
-
-// }, [])
-
-
-// useEffect(() => {
-// fetchPost();
-// }, [fetchPost])
-
-// console.log("test",ingredientsR)
